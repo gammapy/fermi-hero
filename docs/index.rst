@@ -3,6 +3,8 @@ fermi-hero
 
 Fermi LAT data analysis tutorial @ 2013 IMRPS summer school on high energy astrophysics
 
+Christoph Deil and Victor Zabalza, MPIK Heidelberg
+
 .. warning:: This webpage has not been set up yet. Please come back later.
 
 Schedule:
