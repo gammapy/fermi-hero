@@ -1,5 +1,7 @@
-Images
-======
+.. _image:
+
+Image
+=====
 
 Intro
 -----

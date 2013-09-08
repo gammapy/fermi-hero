@@ -46,6 +46,7 @@ Then for each of the following lessons we will start with a short demo and then 
 .. toctree::
    :maxdepth: 1
 
+   getting_started/index
    image/index
    spectrum/index
    lightcurve/index
