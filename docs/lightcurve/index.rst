@@ -23,6 +23,13 @@ constant flux. However, Fermi/LAT discovered that its flux is far from constant,
 exhibiting flux changes of a factor of 10 or more over just a few hours. The
 astrophysical process behind these flares is still unkown.
 
+.. figure:: buehler.png
+   :width: 100%
+
+   Fermi/LAT lightcurver of the April 2011 Crab Nebula flare as published in
+   `Buehler et al. (2012), ApJ 749, 26 <http://arxiv.org/abs/1112.1979>`_ 
+
+
 In this tutorial we assume that you have already installed and initialized the Fermi Science
 Tools as well as `enrico`.
 
@@ -43,7 +50,12 @@ You can the edit the file `crab.conf` to check the parameters. In addition to
 the `target`, `space`, `file`, and `time` categories, the `AppLC` configuration
 category includes the values used by `enrico` when creating the aperture
 lightcurve. Use the `NLCbin` parameter to set the number of bins desired in the
-lightcurve between `tmin` and `tmax`. Then run the aperture lightcurve enrico
+lightcurve between `tmin` and `tmax`. Given that the total selection time in the photon
+file is 16 days, 32 bins will result in a bin width of 12 hours, and 64 bins in
+a bin width of 24 hours. You can try different bin widths to check which one
+yields the most informative lightcurve, taking into account that shorter time
+bin widths will result in larger uncertainties.  Then run the aperture lightcurve
+enrico
 script:
 
     enrico_applc crab.conf
@@ -58,3 +70,8 @@ This scrip will run the following tasks:
    each of the bins.
 5. From the results of **gtbin** and **gtexposure**, lightcurve plots are generated in the `AppertureLightcurve` directory.
 
+The resulting aperture lightcurve will be saved in
+`AppertureLightcurve/AppLC.eps`, and should reproduce the two peaks shown in 
+
+.. image:: applc.png
+   :width: 100%
