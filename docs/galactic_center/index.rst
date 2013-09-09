@@ -1,7 +1,7 @@
-.. _image:
+.. _galactic_center:
 
-Image
-=====
+Galactic Center High-Energy View
+================================
 
 Intro
 -----
@@ -40,22 +40,42 @@ you copy the file ``gtltcube.fits`` from the solutions folder so that you can co
      ra=INDEF dec=INDEF rad=INDEF tmin=INDEF tmax=INDEF \
      emin=10000 emax=1000000 zmax=100 evclass=2
 
-   $ gtmktime scfile=../spacecraft.fits evfile=gtselect.fits \
+   $ gtmktime scfile=../../spacecraft.fits evfile=gtselect.fits \
      filter=DATA_QUAL==1&&LAT_CONFIG==1&&ABS(ROCK_ANGLE)<52 \
      roicut=yes outfile=gtmktime.fits
 
-   $ gtltcube evfile=gtmktime.fits scfile=../spacecraft.fits \
+   $ gtltcube evfile=gtmktime.fits scfile=../../spacecraft.fits \
      outfile=gtltcube.fits dcostheta=0.025 binsz=1 
 
 Make a count cube and image
 ---------------------------
 
-`gtbin <http://fermi.gsfc.nasa.gov/ssc/data/analysis/scitools/help/gtbin.txt>`_
-`ds9 <https://hea-www.harvard.edu/RD/ds9/site/Home.html>`_
+Run `gtbin <http://fermi.gsfc.nasa.gov/ssc/data/analysis/scitools/help/gtbin.txt>`_ to make a counts image:: 
 
-::
+   $ gtbin
+   This is gtbin version ScienceTools-v9r31p1-fssc-20130410
+   Type of output file (CCUBE|CMAP|LC|PHA1|PHA2|HEALPIX) [] CMAP 
+   Event data file name[] gtmktime.fits
+   Output file name[] counts_image.fits
+   Spacecraft data file name[] ../../spacecraft.fits 
+   Size of the X axis in pixels[] 700
+   Size of the Y axis in pixels[] 700
+   Image scale (in degrees/pixel)[] 0.1
+   Coordinate system (CEL - celestial, GAL -galactic) (CEL|GAL) [] GAL
+   First coordinate of image center in degrees (RA or galactic l)[] 0
+   Second coordinate of image center in degrees (DEC or galactic b)[] 0
+   Rotation angle of image axis, in degrees[] 0
+   Projection method e.g. AIT|ARC|CAR|GLS|MER|NCP|SIN|STG|TAN:[] TAN
 
-   
+Use `ds9 <https://hea-www.harvard.edu/RD/ds9/site/Home.html>`_ to look at it::
+
+   $ ds9 -cmap b -scale sqrt counts_image.fits 
+
+
+.. image:: ds9_gc.png
+   :scale: 100 %
+
+
 
 
 Compute an exposure cube
@@ -68,6 +88,11 @@ Compute a diffuse model image
 
 `gtsrcmaps <http://fermi.gsfc.nasa.gov/ssc/data/analysis/scitools/help/gtsrcmaps.txt>`_
 
+::
+
+   ln -s $FERMI_DIR/refdata/fermi/galdiffuse/gal_2yearp7v6_v0.fits .
+   ln -s $FERMI_DIR/refdata/fermi/galdiffuse/iso_p7v6source.txt .
+
 Compute an excess and significance image
 ----------------------------------------
 
@@ -75,6 +100,12 @@ TODO: Give a Python script to do it (tophat-correlate or PSF-correlate, then app
 
 A quick look at a few sources
 -----------------------------
+
+.. figure:: hess_survey.png
+   :scale: 100 %
+
+   HESS survey image (TeV energy range).
+   Reference: http://adsabs.harvard.edu/abs/2013arXiv1307.4690C
 
 TODO: Overplot 2FGL and 1HFL catalogs as well as TeVCAT and Green and ATNF in Aladin.
 

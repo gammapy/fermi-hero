@@ -48,9 +48,9 @@ Then for each of the following lessons we will start with a short demo and then 
    :numbered:
 
    getting_started/index
-   image/index
    spectrum/index
    lightcurve/index
+   galactic_center/index
 
 If you want to learn more, here are some resources to continue after this tutorial: 
 
