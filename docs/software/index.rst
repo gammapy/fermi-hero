@@ -77,20 +77,20 @@ libcrypto and libssl shared library problem
 
 If gtbin complains about missing ``libcrypto.so.10``, then you need make a
 link to your installed version with the name requested. To do this first 
-use "locate" to find your version, then cd to that directory and create a 
-symbolic link. Example:
+use ``locate`` to find your version, then cd to that directory and create a 
+symbolic link. Example::
 
     $ sudo -i
     # locate libcrypto
     /PATH TO FILE/libcrypto.so.0.9.8
     # cd /PATH TO FILE/
     # ln -s libcrypto.so.0.9.8 libcrypto.so.10
-    # You see either a file called libcrypto.so.0.9.8 or libcrypto.so.1.0.0.
 
-If locate finds a file called libcrypto.so.1.0.0, use that file instead of the
-libcrypto.0.9.8 version.  
+You see either a file called ``libcrypto.so.0.9.8`` or ``libcrypto.so.1.0.0``.
+If locate finds a file called ``libcrypto.so.1.0.0``, use that file instead of the
+``libcrypto.0.9.8`` version.  
 
-After creating the libcrypto link, try to run gtbin. Sometimes a similar error 
+After creating the ``libcrypto`` link, try to run ``gtbin``. Sometimes a similar error 
 regarding ``libssl`` will take place, if it does repeat the steps
 above with thelibssl file to (hopefully) correct it.
 
