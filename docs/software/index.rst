@@ -113,6 +113,7 @@ If you would like to continue with gamma-ray data analysis, here are some tools 
 * `FTOOLS --- A General Package of Software to Manipulate FITS Files <http://heasarc.nasa.gov/ftools/>`_
   E.g. the `ftlist command line tool <http://heasarc.gsfc.nasa.gov/ftools/caldb/help/ftlist.html>`_
   is very handy to check what is in a given FITS file.
+* `wget <http://en.wikipedia.org/wiki/Wget>`_ to download files from the command line
 * `Aladin --- A FITS image viewer (alternative to ds9) <http://aladin.u-strasbg.fr>`_
 * Learning to use `scientific Python stack <http://www.scipy.org/about.html#core-packages>`_ and especially `IPython <http://ipython.org>`_ will make
   you highly productive at any data analysis task.

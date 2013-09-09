@@ -45,6 +45,7 @@ Then for each of the following lessons we will start with a short demo and then 
 
 .. toctree::
    :maxdepth: 1
+   :numbered:
 
    getting_started/index
    image/index

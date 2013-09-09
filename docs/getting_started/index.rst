@@ -7,12 +7,21 @@ To get started, you will learn how to use some tools to download, prepare and ex
 
 Fermi LAT data consists of **event data files** and **spacecraft data files**.
 
+.. note:: Throughout this tutorial we will use the terms **event** and **photon** interchangeably,
+   because for the event classes we use the fraction of events that are not photons,
+   but charged cosmic rays, is negligibly low (less than 1%).
+
+   **Event file == Photon file == FT1 file**
+
+   **Spacecraft file == FT2 file**
+
+
 The spacecraft data file contains the information about the orbit position and pointing direction
 as well as some status and quality information ... you can use the same spacecraft file (~700 MB for 5 years)
 for all your analyses as long as it covers the time range you want to analyse.
 That's all you need to know about the spacecraft data file ... simply give it's filename to the tools that require it to do their job.
 
-The event data file contains a table of observed and reconstructed events (mostly photons, in rare cases could be charged cosmic rays),
+The event data file contains a table of observed and reconstructed events.
 where the most important event parameters are:
 
 * **(RA, DEC)** (degrees). Equatorial coordinates ... called right ascension **RA** and declination **DEC**.
@@ -21,7 +30,7 @@ where the most important event parameters are:
 * **TIME** (seconds). Mission elapsed time when the event was detected.
   (MET is the total number of seconds since 00:00:00 on January 1, 2001 UTC)
 
-In this tutorial we will have a quick look at the Fermi LAT dataset for the Galactic center region by binning the events into histograms:
+In this tutorial we will have a quick look at the Fermi LAT dataset by binning the events into histograms:
 
 * A 2-dimensional **(L, B)** histogram is called a **counts image**.
 * A 1-dimensional **ENERGY** histogram is called a **counts spectrum**.
@@ -49,10 +58,19 @@ You should have installed and quickly tested the :ref:`software` and downloaded 
 Steps
 -----
 
-1. Download
-2.  
 
-* http://fits.gsfc.nasa.gov/
+.. toctree::
+   :maxdepth: 1
+   :numbered:
+
+   get_data
+   first_look
+   prepare_data
+   python
+   explore_events
+   image_and_source_catalog
+   summary
+   
 
 Additional reference
 --------------------
