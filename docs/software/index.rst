@@ -108,6 +108,9 @@ If you want:
 TOPCAT
 ------
 
+`TOPCAT <http://www.star.bris.ac.uk/~mbt/topcat/>` is a Java program to view FITS tables.
+Follow the installation instructions on the web. 
+
 Aladin (optional)
 -----------------
 
