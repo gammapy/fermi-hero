@@ -36,8 +36,8 @@ In this tutorial we will have a quick look at the Fermi LAT dataset by binning t
 * A 1-dimensional **ENERGY** histogram is called a **counts spectrum**.
 * A 1-dimensional **TIME** histogram is called a **counts lightcurve**.
 
-In the :ref:`image`, :ref:`spectrum` and :ref:`lightcurve` tutorials we will then show you how to create a
-**flux image**, **flux spectrum** and **flux lightcurve**, where **flux = counts / exposure** and
+In the :ref:`spectrum`, :ref:`lightcurve` and :ref:`galactic_center` tutorials we will then show you how to create a
+**flux spectrum**, **flux lightcurve** and **flux image**, where **flux = counts / exposure** and
 **exposure = (effective area) x (observation time)** and in addition to exposure the spatial resolution, called point spread function (PSF),
 and energy resolution have been taken into account.
 
