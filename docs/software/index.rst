@@ -70,7 +70,7 @@ After download you have to set up the Fermi science tools as described
    # abort with CTRL + C
    $ which python
    $ python
-   >>> import UnbinnedLikelihood
+   >>> import UnbinnedAnalysis
 
 
 FTOOLS = HEASOFT
