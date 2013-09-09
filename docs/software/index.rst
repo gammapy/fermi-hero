@@ -3,6 +3,9 @@
 Software
 ========
 
+.. warning:: Please **do not** download large files during the tutorial or the WIFI network will overload.
+   We will distribute the software and data you need via USB sticks.
+
 To participate in the tutorial you should bring a Mac or Linux laptop.
 
 This page describes how to install the software we need for the tutorial and how to check that it works properly.
@@ -10,7 +13,11 @@ This page describes how to install the software we need for the tutorial and how
 If you have a Windows laptop, you can install `VirtualBox <https://www.virtualbox.org>`_
 and then install Linux in a virtual machine. It's best to install a Linux distribution that is officially  
 supported by the Fermi science tools (see `here <http://fermi.gsfc.nasa.gov/ssc/data/analysis/software/>`_):
-`Scientific Linux <https://www.scientificlinux.org>`_ or `Ubuntu <http://www.ubuntu.com>`_.
+unfortunately the `Scientific Linux <https://www.scientificlinux.org>`_ distribution is very large (over 4 GB)
+and `Ubuntu <http://www.ubuntu.com>`_ has known problems.
+Therefore we recomment you try `Fedora <http://fedoraproject.org>`_, which should be similar enough to ScientificLinux for the
+`Scientific Linux 6 64 bit libc 2.12 <http://fermi.gsfc.nasa.gov/ssc/data/analysis/software/tar/ScienceTools-v9r31p1-fssc-20130410-x86_64-unknown-linux-gnu-libc2.12.tar.gz>`_
+binary version of the ScienceTools to work.
 
 **Check:** you should be able to open a terminal and do this::
 
@@ -18,9 +25,6 @@ supported by the Fermi science tools (see `here <http://fermi.gsfc.nasa.gov/ssc/
    Hello world
    $
 
-.. warning:: In early September 2013 a new version of the Fermi science tools will be released.
-   We will update these notes as soon as this happens.
-   We recommend you **don't install the Fermi science tools and Enrico** now, but only when the new version is available!  
 
 Fermi science tools
 -------------------

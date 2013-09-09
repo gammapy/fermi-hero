@@ -3,6 +3,9 @@
 Data
 ====
 
+.. warning:: Please **do not** download large files during the tutorial or the WIFI network will overload.
+   We will distribute the software and data you need via USB sticks.
+
 Download the `fermi-data.tar.gz` tarball from here (TODO),
 then execute the following commands::
 

@@ -22,6 +22,12 @@ Don't be shy ... really any question is welcome ...installation issues, error me
 The tutorial pages are generated from the `fermi-hero Github repository <https://github.com/gammapy/fermi-hero/>`_,
 just in case you'd like to contribute corrections or improvements.
 
+.. warning:: Please **do not** download large files during the tutorial or the WIFI network will overload.
+   We will distribute the software and data you need via USB sticks.
+   
+.. warning:: In September 2013 a new version of the Fermi science tools and re-processed Pass 7 data was announced to be released.
+   We will update this tutorial when this happens.  
+
 .. toctree::
    :maxdepth: 1
 
