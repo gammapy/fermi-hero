@@ -72,6 +72,23 @@ After download you have to set up the Fermi science tools as described
    $ python
    >>> import UnbinnedAnalysis
 
+libcrypto and libssh shared library problem
++++++++++++++++++++++++++++++++++++++++++++
+
+If when running gtbin it complains about missing ``libcrypto.so.1.0.0``, make a
+link to your installed version with the name requested.::
+
+    $ sudo -i
+    # locate libcrypto
+    /usr/lib/x86_64-linux-gnu/libcrypto.so.0.9.8
+    # cd /usr/lib/x86_64-linux-gnu/
+    # ln -s libcrypto.so.0.9.8 libcrypto.so.1.0.0
+    
+Here we have used 0.9.8 as the version available in the system and 1.0.0 the
+missing one. Please change these as appropiate for your system. 
+
+Sometimes a similar error regarding ``libssl`` will take place. Repeat the steps
+above with libssl to (hopefully) correct it.
 
 FTOOLS = HEASOFT
 ----------------
@@ -159,7 +176,7 @@ This is an example init file ... you'll have to adapt the PATHs / versions to yo
 
    export FERMI_HERO = /Users/deil/FERMI_HERO
    
-   export HEADAS=$FERMI_HERO
+   export HEADAS=$FERMI_HERO/heasoft-6.14/x86_64-unknown-linux-gnu-libc2.5
    source $HEADAS/headas-init.sh
    
    export FERMI_DIR=$FERMI_HERO/ScienceTools-v9r31p1-fssc-20130410-x86_64-apple-darwin12.2.0/x86_64-apple-darwin12.2.0
