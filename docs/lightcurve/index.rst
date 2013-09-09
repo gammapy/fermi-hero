@@ -55,10 +55,9 @@ file is 16 days, 32 bins will result in a bin width of 12 hours, and 64 bins in
 a bin width of 24 hours. You can try different bin widths to check which one
 yields the most informative lightcurve, taking into account that shorter time
 bin widths will result in larger uncertainties.  Then run the aperture lightcurve
-enrico
-script:
+enrico script: ::
 
-    enrico_applc crab.conf
+    $ enrico_applc crab.conf
 
 This scrip will run the following tasks:
 
