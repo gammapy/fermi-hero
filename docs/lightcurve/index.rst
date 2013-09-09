@@ -38,8 +38,11 @@ the ``CrabNebula`` directory. There you will find photon and spacecraft data
 downloaded from the LAT data server with the parameters specified in the
 ``LAT_server_query.txt`` file. 
 
-Generate an configuration file for this observation with the command
-``enrico_config crab.conf`` and enter the name and coordinates of the source (you
+Generate an configuration file for this observation with the command::
+
+    $ enrico_config crab.conf
+    
+and enter the name and coordinates of the source (you
 will find them in ``LAT_server_query.txt``). For the aperture lightcurve, the
 model and ROI size parameters are not used, so leave them to their default
 values. Make sure to enter the FT2 (spacecraft file) and FT1 (photon file) with their
