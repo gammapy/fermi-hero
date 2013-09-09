@@ -72,19 +72,27 @@ After download you have to set up the Fermi science tools as described
    $ python
    >>> import UnbinnedLikelihood
 
+
 FTOOLS = HEASOFT
 ----------------
 
-`Fv: The Interactive FITS File Editor <http://heasarc.gsfc.nasa.gov/ftools/fv/>`_ is a flexible tool to view and edit
-`FITS <http://fits.gsfc.nasa.gov>`_ files. Use `ds9` as an image viewer and `fv` to look at the content of Fermi event lists
-(called `photon files <http://fermi.gsfc.nasa.gov/ssc/data/analysis/documentation/Cicerone/Cicerone_Data/LAT_Data_Columns.html#PhotonFile>`_).   
+Next install the `FTOOLS --- A General Package of Software to Manipulate FITS Files <http://heasarc.nasa.gov/ftools/>`_
+following the installation instructions on the web.
 
-**Check:** Open up a Fermi event list as described `here <http://fermi.gsfc.nasa.gov/ssc/data/analysis/scitools/explore_latdata.html>`_.
+With the FTOOLS you install
+`Fv: The Interactive FITS File Editor <http://heasarc.gsfc.nasa.gov/ftools/fv/>`_,
+a flexible tool to view and edit `FITS <http://fits.gsfc.nasa.gov>`_ files.
 
-* `FTOOLS --- A General Package of Software to Manipulate FITS Files <http://heasarc.nasa.gov/ftools/>`_
-  E.g. the `ftlist command line tool <http://heasarc.gsfc.nasa.gov/ftools/caldb/help/ftlist.html>`_
-  is very handy to check what is in a given FITS file.
+..
 
+   E.g. the `ftlist command line tool <http://heasarc.gsfc.nasa.gov/ftools/caldb/help/ftlist.html>`_
+   is very handy to check what is in a given FITS file.
+
+   Use `ds9` as an image viewer and `fv` to look at the content of Fermi event lists
+   (called `photon files <http://fermi.gsfc.nasa.gov/ssc/data/analysis/documentation/Cicerone/Cicerone_Data/LAT_Data_Columns.html#PhotonFile>`_).   
+
+   **Check:** Open up a Fermi event list as described `here <http://fermi.gsfc.nasa.gov/ssc/data/analysis/scitools/explore_latdata.html>`_
+   with ``fv``
 
 ds9
 ---
