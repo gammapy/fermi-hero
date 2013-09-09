@@ -24,9 +24,9 @@ exhibiting flux changes of a factor of 10 or more over just a few hours. The
 astrophysical process behind these flares is still unkown.
 
 .. figure:: buehler.png
-   :width: 100%
+   :width: 80%
 
-   Fermi/LAT lightcurver of the April 2011 Crab Nebula flare as published in
+   Fermi/LAT lightcurve of the April 2011 Crab Nebula flare as published in
    `Buehler et al. (2012), ApJ 749, 26 <http://arxiv.org/abs/1112.1979>`_ 
 
 
@@ -75,4 +75,4 @@ The resulting aperture lightcurve will be saved in
 Buehler et al. (2012) as seen in the following example:
 
 .. image:: applc.png
-   :width: 100%
+   :width: 80%
