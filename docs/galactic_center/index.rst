@@ -112,3 +112,13 @@ TODO: Overplot 2FGL and 1HFL catalogs as well as TeVCAT and Green and ATNF in Al
 * HESS J1825
 * RX J1713
 * Galactic center
+
+
+The 130 GeV line
+----------------
+
+.. figure:: gc_line.png
+   :scale: 100 %
+
+   Galactic center 130 GeV line
+   Reference: http://adsabs.harvard.edu/abs/2013arXiv1305.5597F
