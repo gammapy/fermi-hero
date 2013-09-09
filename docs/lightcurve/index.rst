@@ -72,6 +72,7 @@ This scrip will run the following tasks:
 
 The resulting aperture lightcurve will be saved in
 `AppertureLightcurve/AppLC.eps`, and should reproduce the two peaks shown in 
+Buehler et al. (2012) as seen in the following example:
 
 .. image:: applc.png
    :width: 100%
