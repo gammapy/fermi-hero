@@ -174,18 +174,3 @@ This is an example init file ... you'll have to adapt the PATHs / versions to yo
    # Add location of binaries to your PATH, e.g. for ds9:
    export PATH=$PATH:$FERMI_HERO
 
-
-..
-
-   Other
-   -----
-   
-   By now you have all the software you need for the tutorial.
-   
-   If you would like to continue with gamma-ray data analysis, here are some tools you might find useful and can install if you like:
-   
-   * `wget <http://en.wikipedia.org/wiki/Wget>`_ to download files from the command line
-   * Learning to use `scientific Python stack <http://www.scipy.org/about.html#core-packages>`_ and especially `IPython <http://ipython.org>`_ will make
-     you highly productive at any data analysis task.
-   * `Astropy --- A Community Python Library for Astronomy <http://www.astropy.org>`_
-   * `APLpy (the Astronomical Plotting Library in Python) <http://aplpy.github.io>`_
