@@ -25,8 +25,19 @@ binary version of the ScienceTools to work.
    Hello world
    $
 
+Overview
+--------
 
-Fermi science tools
+You should install the following software:
+
+* Fermi Science Tools
+* FTOOLS = HEASOFT (includes fv)
+* ds9
+* TOPCAT
+* Aladin (if you want)
+* Enrico
+
+Fermi Science Tools
 -------------------
 
 The main analysis software you will use for this tutorial is the Fermi data analysis software, called the
@@ -61,23 +72,19 @@ After download you have to set up the Fermi science tools as described
    $ python
    >>> import UnbinnedLikelihood
 
-Enrico
-------
+FTOOLS = HEASOFT
+----------------
 
-Producing a spectrum (global model and flux points in energy bins) or light curve (flux points in time bins)
-requires calling a lot of Fermi science tools with the right parameters in the right order.
+`Fv: The Interactive FITS File Editor <http://heasarc.gsfc.nasa.gov/ftools/fv/>`_ is a flexible tool to view and edit
+`FITS <http://fits.gsfc.nasa.gov>`_ files. Use `ds9` as an image viewer and `fv` to look at the content of Fermi event lists
+(called `photon files <http://fermi.gsfc.nasa.gov/ssc/data/analysis/documentation/Cicerone/Cicerone_Data/LAT_Data_Columns.html#PhotonFile>`_).   
 
-Luckily you have `Enrico  <http://enrico.readthedocs.org/en/latest/index.html>`_ to help you.
-Enrico is a set of `Python <http://www.python.org>`_ scripts that take a single 
-`config file <http://enrico.readthedocs.org/en/latest/configfile.html>`_ as input where you specify what
-kind of analysis you want to run and the most important analysis parameters, and the run all Fermi science tools
-in the right order (or in parallel where possible) with the right parameters for you.
+**Check:** Open up a Fermi event list as described `here <http://fermi.gsfc.nasa.gov/ssc/data/analysis/scitools/explore_latdata.html>`_.
 
-Please install Enrico as described `here <http://enrico.readthedocs.org/en/latest/setup.html#install-enrico>`_.
+* `FTOOLS --- A General Package of Software to Manipulate FITS Files <http://heasarc.nasa.gov/ftools/>`_
+  E.g. the `ftlist command line tool <http://heasarc.gsfc.nasa.gov/ftools/caldb/help/ftlist.html>`_
+  is very handy to check what is in a given FITS file.
 
-**Check:** To check that Enrico is installed correctly run this command::
-
-   $ enrico_setupcheck
 
 ds9
 ---
@@ -98,28 +105,76 @@ If you want:
 * Some Hubble space telescope optical images `here <http://www.spacetelescope.org/projects/fits_liberator/datasets_archives/>`_.
 * Some Chandra X-ray observatory X-ray images `here <http://chandra.harvard.edu/photo/openFITS/>`_
 
-fv
---
+TOPCAT
+------
 
-`Fv: The Interactive FITS File Editor <http://heasarc.gsfc.nasa.gov/ftools/fv/>`_ is a flexible tool to view and edit
-`FITS <http://fits.gsfc.nasa.gov>`_ files. Use `ds9` as an image viewer and `fv` to look at the content of Fermi event lists
-(called `photon files <http://fermi.gsfc.nasa.gov/ssc/data/analysis/documentation/Cicerone/Cicerone_Data/LAT_Data_Columns.html#PhotonFile>`_).   
+Aladin (optional)
+-----------------
 
-**Check:** Open up a Fermi event list as described `here <http://fermi.gsfc.nasa.gov/ssc/data/analysis/scitools/explore_latdata.html>`_.
+`Aladin --- A FITS image viewer (alternative to ds9) <http://aladin.u-strasbg.fr>`_
+is a nice astronomical image and catalog viewer ... an alternative to ``ds9``.
 
-Other
------
+Install it and give it a try if you want. 
 
-By now you have all the software you need for the tutorial.
+Enrico
+------
 
-If you would like to continue with gamma-ray data analysis, here are some tools you might find useful and can install if you like:
+Producing a spectrum (global model and flux points in energy bins) or light curve (flux points in time bins)
+requires calling a lot of Fermi science tools with the right parameters in the right order.
 
-* `FTOOLS --- A General Package of Software to Manipulate FITS Files <http://heasarc.nasa.gov/ftools/>`_
-  E.g. the `ftlist command line tool <http://heasarc.gsfc.nasa.gov/ftools/caldb/help/ftlist.html>`_
-  is very handy to check what is in a given FITS file.
-* `wget <http://en.wikipedia.org/wiki/Wget>`_ to download files from the command line
-* `Aladin --- A FITS image viewer (alternative to ds9) <http://aladin.u-strasbg.fr>`_
-* Learning to use `scientific Python stack <http://www.scipy.org/about.html#core-packages>`_ and especially `IPython <http://ipython.org>`_ will make
-  you highly productive at any data analysis task.
-* `Astropy --- A Community Python Library for Astronomy <http://www.astropy.org>`_
-* `APLpy (the Astronomical Plotting Library in Python) <http://aplpy.github.io>`_
+Luckily you have `Enrico  <http://enrico.readthedocs.org/en/latest/index.html>`_ to help you.
+Enrico is a set of `Python <http://www.python.org>`_ scripts that take a single 
+`config file <http://enrico.readthedocs.org/en/latest/configfile.html>`_ as input where you specify what
+kind of analysis you want to run and the most important analysis parameters, and the run all Fermi science tools
+in the right order (or in parallel where possible) with the right parameters for you.
+
+Please install Enrico as described `here <http://enrico.readthedocs.org/en/latest/setup.html#install-enrico>`_.
+
+**Check:** To check that Enrico is installed correctly run this command::
+
+   $ enrico_setupcheck
+
+
+Init file
+---------
+
+You should create a file `fermi-hero-init.sh` which sets up your shell for this tutorial.
+
+Once all software is installed all you have to do is::
+
+   $ source fermi-hero-init.sh
+
+This is an example init file ... you'll have to adapt the PATHs / versions to your system::
+
+   export FERMI_HERO = /Users/deil/FERMI_HERO
+   
+   export HEADAS=$FERMI_HERO
+   source $HEADAS/headas-init.sh
+   
+   export FERMI_DIR=$FERMI_HERO/ScienceTools-v9r31p1-fssc-20130410-x86_64-apple-darwin12.2.0/x86_64-apple-darwin12.2.0
+   source $FERMI_DIR/fermi-init.sh
+   
+   export ENRICO_DIR=$FERMI_HERO/enrico
+   source $ENRICO_DIR/enrico-init.sh
+   
+   alias topcat="java -Xms512m -Xmx4024m -jar /Applications/TOPCAT.app/Contents/Resources/Java/topcat-full.jar"
+   alias aladin="java -Xms512m -Xmx4024m -jar /Applications/Aladin.app/Contents/Resources/Java/Aladin.jar"
+   
+   # Add location of binaries to your PATH, e.g. for ds9:
+   export PATH=$PATH:$FERMI_HERO
+
+
+..
+
+   Other
+   -----
+   
+   By now you have all the software you need for the tutorial.
+   
+   If you would like to continue with gamma-ray data analysis, here are some tools you might find useful and can install if you like:
+   
+   * `wget <http://en.wikipedia.org/wiki/Wget>`_ to download files from the command line
+   * Learning to use `scientific Python stack <http://www.scipy.org/about.html#core-packages>`_ and especially `IPython <http://ipython.org>`_ will make
+     you highly productive at any data analysis task.
+   * `Astropy --- A Community Python Library for Astronomy <http://www.astropy.org>`_
+   * `APLpy (the Astronomical Plotting Library in Python) <http://aplpy.github.io>`_

@@ -19,12 +19,12 @@ then execute the following commands::
 As you can see the `fermi-hero` folder contains a file ``spacecraft.fits`` as well as
 two folders ``excercises`` and ``solutions``:
 
-* `excercises` contains the input data files you'll need for the excercises.
+* ``excercises`` contains the input data files you'll need for the excercises.
   This is where you can run the analyses yourself by following the instructions given in the
   various tutorial sections.
-* `solutions` contains all files after you've run the commands.
+* ``solutions`` contains all files after you've run the commands.
   You can use it as a reference or to skip very time-consuming steps by just copying over the
-  relevant file from `solutions` to `excercises`     
+  relevant file from ``solutions`` to ``excercises``     
 
 TODO: give overview table of data sets used in this tutorial.
 
