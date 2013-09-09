@@ -34,7 +34,7 @@ Spatial distribution
 --------------------
 
 TODO: explain sources and diffuse emission and PSF
-Point to :ref:`getting_started_image_and_source_catalog` tutorial and :ref:`image` tutorial.
+Point to :ref:`getting_started_image_and_source_catalog` tutorial and :ref:`galactic_center` tutorial.
 
 Energy distribution
 -------------------
