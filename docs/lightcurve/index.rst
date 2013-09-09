@@ -34,7 +34,7 @@ In this tutorial we assume that you have already installed and initialized the F
 Tools as well as ``enrico``.
 
 Change directory to where you have extracted the excercise data files and enter
-the ``CrabNebula`` directory. You can explore the data selection applied to the
+the ``lightcurve`` directory. You can explore the data selection applied to the
 event file with ``gtvcut`` command. 
 
 Generate an configuration file for this observation with the command::
