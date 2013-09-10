@@ -98,7 +98,10 @@ FTOOLS = HEASOFT
 ----------------
 
 Next install the `FTOOLS --- A General Package of Software to Manipulate FITS Files <http://heasarc.nasa.gov/ftools/>`_
-following the installation instructions on the web.
+following the installation instructions on the web. To install correctly you
+must run the ``configure`` script found in ``heasoft-6.14/[platform
+version]/BUILD_DIR``, where ``[platform version]`` corresponds to the string of
+your platform (e.g., ``x86_64-unknown-linux-gnu-libc2.5`` for Linux64).
 
 With the FTOOLS you install
 `Fv: The Interactive FITS File Editor <http://heasarc.gsfc.nasa.gov/ftools/fv/>`_,
