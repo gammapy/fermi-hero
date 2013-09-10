@@ -63,7 +63,6 @@ Steps
    :maxdepth: 1
    :numbered:
 
-   get_data
    first_look
    prepare_data
    python
