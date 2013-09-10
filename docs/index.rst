@@ -31,6 +31,7 @@ just in case you'd like to contribute corrections or improvements.
 .. toctree::
    :maxdepth: 1
 
+   virtual_box/index
    software/index
    data/index
    getting_started/index
