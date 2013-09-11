@@ -86,7 +86,7 @@ Compute an exposure cube
 Compute a diffuse model image
 -----------------------------
 
-`gtsrcmaps <http://fermi.gsfc.nasa.gov/ssc/data/analysis/scitools/help/gtsrcmaps.txt>`_
+`gtmodel <http://fermi.gsfc.nasa.gov/ssc/data/analysis/scitools/help/gtmodel.txt>`_
 
 ::
 
