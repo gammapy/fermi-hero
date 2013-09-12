@@ -297,14 +297,15 @@ identify any sources that have been imperfectly modeled.
     :align: center
     :width: 80%
 
-    Observed (left) and model (right) counts maps.
+    Observed (left, ``PG1553_LAT_CountMap.fits``) and model (right,
+    ``PG1553_LAT_ModelMap.fits``) counts maps.
 
 
 .. figure:: residual.png
     :align: center
-    :width: 80%
+    :width: 40%
 
-    Residual counts map restulting of the substraction of the model map to the
+    Residual counts map (``PG1553_Residual_Model_cmap.fits``) resulting of the substraction of the model map to the
     observed map. The uniform noise-like appearance and a low peak
     value of about 3% of the above maps indicate that the model accounts for all
     the observed emission.
