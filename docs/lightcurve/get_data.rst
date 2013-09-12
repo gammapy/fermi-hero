@@ -1,10 +1,10 @@
 .. _getting_started_get_data:
 
 Get Fermi LAT data
-==================
+------------------
 
 Spacecraft file
----------------
++++++++++++++++
 
 The spacecraft file doesn't depend on the sky region or energy range you are interested in
 ... it is valid for the whole sky and all energies.
@@ -20,7 +20,7 @@ mission (updated daily with new data) use this command
 
 
 Photon files
-------------
+++++++++++++
 
 Usually you will do this via the
 `FSSC data query web interface <http://fermi.gsfc.nasa.gov/cgi-bin/ssc/LAT/LATDataQuery.cgi>`_
@@ -46,7 +46,7 @@ TODO: give screenshots and short description.
 
 
 Getting data from the April 2011 Crab Nebula Flare
---------------------------------------------------
+++++++++++++++++++++++++++++++++++++++++++++++++++
 
 To carry out the aperture lightcurve excercise you will have to download the
 photon data from the `FSSC data query web interface
@@ -63,14 +63,16 @@ uncheck the ``Spacecraft data`` box.
 
 The parameters for the photon query should therefore be:
 
--------------------------------- -----------------------------------------
-Object Name                      Crab Nebula
-Equatorial coordinates (degrees) (83.6331,22.0145)
-Time range (MET)                 (323913600,325296000)
-Time range (Gregorian)           (2011-04-08 00:00:00,2011-04-24 00:00:00)
-Energy range (MeV)               (100,300000)
-Search radius (degrees)          1
--------------------------------- -----------------------------------------
+.. table:: LAT query parameters
+
+    -------------------------------- -----------------------------------------
+    Object Name                      Crab Nebula
+    Equatorial coordinates (degrees) (83.6331,22.0145)
+    Time range (MET)                 (323913600,325296000)
+    Time range (Gregorian)           (2011-04-08 00:00:00,2011-04-24 00:00:00)
+    Energy range (MeV)               (100,300000)
+    Search radius (degrees)          1
+    -------------------------------- -----------------------------------------
 
 After a brief wait, download the resulting photon file to the
 ``$FERMI_HERO/excercises/lightcurve`` directory and, optionally, rename it to

@@ -1,9 +1,12 @@
 .. _lightcurve:
 
-.. include:: ./get_data.rst
-
 Aperture Lightcurve
 ===================
+
+.. include:: ./get_data.rst
+
+Computing the aperture lightcurve
+---------------------------------
 
 In this section of the tutorial we will learn how to generate an aperture
 lightcurve from Fermi/LAT. 
