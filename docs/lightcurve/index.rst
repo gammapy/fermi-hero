@@ -1,5 +1,7 @@
 .. _lightcurve:
 
+.. include:: ./get_data.rst
+
 Aperture Lightcurve
 ===================
 
