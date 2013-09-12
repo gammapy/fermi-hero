@@ -124,13 +124,7 @@ Run global fit
 The gtlike tool finds the best-fit parameters by minimizing
 a likelihood function. Before running gtlike, the user must generate some
 intermediary files by using different tools. With enrico, all those steps are
-merged in one tool. To run the global fit just call:
-
-.. code-block:: bash
-
-   $ enrico_sed pg1553.conf 
-
-``enrico_sed`` will execute
+merged in one tool. ``enrico_sed`` will execute
 the following steps for you with the options you have selected in
 ``pg1553.conf``:
 
@@ -148,8 +142,21 @@ the following steps for you with the options you have selected in
 
 From all the preliminary fits files generated in the previous steps, ``enrico``
 is ready to run the likelihood minimisation routine that will result in the
-best-fit parameters for our source of interest with the tool ``gtlike``.  The
-command line output should be similar to the following::
+best-fit parameters for our source of interest with the tool ``gtlike``. 
+
+To run the global fit just call:
+
+.. code-block:: bash
+
+   $ enrico_sed pg1553.conf 
+
+
+.. warning:: Computationally intensive!
+    ``enrico_sed`` takes a long time to execute and requires significant amounts
+    of RAM memory. As an example, in my 2011 i5 laptop the ``gtltcube`` step
+    took 20 minutes and the ``gtsrcmaps`` took 10 minutes to run.
+
+The command line output of the likelihood fitting should be similar to the following::
 
     # ************************************************************
     # *** SUMMARY:  ***
