@@ -17,6 +17,7 @@ detection of `dark matter <http://en.wikipedia.org/wiki/Dark_matter>`_.
 
    intro
    maps
+   explore_sources
    line
 
 .. image:: fermi_allsky.jpeg
