@@ -102,7 +102,7 @@ A quick look at a few sources
 -----------------------------
 
 .. figure:: hess_survey.png
-   :scale: 100 %
+   :scale: 40 %
 
    HESS survey image (TeV energy range).
    Reference: http://adsabs.harvard.edu/abs/2013arXiv1307.4690C
@@ -118,7 +118,7 @@ The 130 GeV line
 ----------------
 
 .. figure:: gc_line.png
-   :scale: 100 %
+   :scale: 90 %
 
    Galactic center 130 GeV line
    Reference: http://adsabs.harvard.edu/abs/2013arXiv1305.5597F
