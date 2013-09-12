@@ -60,7 +60,7 @@ and copy the rest from a default config file `enrico/data/config/default.conf`:
    tag [LAT_Analysis] : spectrum
    Start time [239557418] : 239557417
    End time [334165418] : 256970880
-   Emin [100] : 
+   Emin [100] : 200
    Emax [300000] : 
 
 Note :
@@ -71,20 +71,19 @@ Note :
 * Energy is given in MeV
 * ROI size is given in degrees
 
-
 Now you can edit this config file by hand to make further adjustments.
 
-Make a model xml file
----------------------
+Generate a source model xml file
+--------------------------------
 
 The Fermi Science Tools base their likelihood analysis on a source model written
 in xml format. Often, this model is complicated to generate. You can run
-``enrico_xml`` to make such model of the sky and store it into a xml file which will
-be used for the analysis.  The options for this step are provided in the config
-file. For the ``enrico_xml`` tool, the relevant options are in the [space],
-[target] section.  The out file is given by [file]/xml.
+``enrico_xml`` to make such model of the sky and store it into a xml file which
+will be used for the analysis.  The options for this step are provided in the
+config file. For the ``enrico_xml`` tool, the relevant options are in the
+``[space]`` and ``[target]`` sections.  The out file is given by ``[file]/xml``.
 
-This tool automatically adds to the xml file the following sources:
+This tool automatically adds the following sources to the xml source model file:
 
 * your target source.
 * The galactic (GalDiffModel) and isotropic (IsoDiffModel) diffuse components
@@ -96,7 +95,7 @@ This tool automatically adds to the xml file the following sources:
 
 .. code-block:: bash
 
-   $ enrico_xml myanalysis.conf 
+   $ enrico_xml pg1553.conf 
    use the default location of the catalog
    use the default catalog
    Use the catalog :  /CATALOG_PATH/gll_psc_v08.fit
@@ -123,18 +122,19 @@ Run global fit
 The gtlike tool finds the best-fit parameters by minimizing
 a likelihood function. Before running gtlike, the user must generate some
 intermediary files by using different tools. With enrico, all those steps are
-merged in one tool. To run the global fit just call :
+merged in one tool. To run the global fit just call:
 
 .. code-block:: bash
 
-   $ enrico_sed myanalysis.conf 
+   $ enrico_sed pg1553.conf 
 
-If the option ``[Spectrum]/GenerateFits`` is true, ``enrico_sed`` will execute
-the following steps for you:
+``enrico_sed`` will execute
+the following steps for you with the options you have selected in
+``pg1553.conf``:
 
 #. **gtselect**: Perform event selection.
 #. **gtmktime**: Perform time selection based on spacecraft file.
-#. **gtbin** : Compute a counts cube map from the selected data. A counts cube
+#. **gtbin**: Compute a counts cube map from the selected data. A counts cube
    map is a collection of counts maps for different energies.
 #. **gtltcube**: Perform the calculation of the livetime cube. This is the most
    computationally intensive step, taking.
@@ -147,7 +147,7 @@ the following steps for you:
 From all the preliminary fits files generated in the previous steps, ``enrico``
 is ready to run the likelihood minimisation routine that will result in the
 best-fit parameters for our source of interest with the tool ``gtlike``.  The
-command line output should be similar to the following:::
+command line output should be similar to the following::
 
     # ************************************************************
     # *** SUMMARY:  ***
@@ -279,7 +279,7 @@ command line output should be similar to the following:::
 
 
 After the fit has converged, ``enrico`` prints the best-fit parameters for all
-the sources in the model file, including our source of interest:::
+the sources in the model file, including our source of interest::
 
     Values and (MINOS) errors for PG1553
     TS :  2189.41693741
@@ -313,17 +313,20 @@ identify any sources that have been imperfectly modeled.
     the observed emission.
 
 A file with the extension 'results' will be produced and where all the results
-will be stored.  If you want to refit the data because e.g. you changed the xml
-model, you are not force to regenerate the fits file. Only the gtlike tool
-should be executed again.  You can do this with enrico by changing the option
-``[spectrum]/FitsGeneration`` from yes to no, and enrico will bypass all the
-preliminary calculations and perform only the fit.
+will be stored.  
+
+.. note::
+    If you want to refit the data because e.g. you changed the xml
+    model, you are not force to regenerate the fits file. Only the gtlike tool
+    should be executed again.  You can do this with enrico by changing the option
+    ``[spectrum]/FitsGeneration`` from yes to no, and enrico will bypass all the
+    preliminary calculations and perform only the fit.
 
 You can use ``enrico_testmodel`` to compute the log(likelihood) of the models
 ``PowerLaw``, ``LogParabola`` and ``PLExpCutoff``. An ascii file is then produced in
 the Spectrum folder with the value of the log(likelihood) for each model. You
 can then use the `Wilk's
-theorem<http://en.wikipedia.org/wiki/Likelihood-ratio_test>`_ to decide which
+theorem <http://en.wikipedia.org/wiki/Likelihood-ratio_test>`_ to decide which
 model best describes the data.
 
 Compute flux points
