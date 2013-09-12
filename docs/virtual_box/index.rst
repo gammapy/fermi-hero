@@ -61,7 +61,7 @@ You'll never have to look at this folder, except if you are short on disk space 
 Starting and using the ``fermi-hero`` virtual machine
 -----------------------------------------------------
 
-To start the ``fermi-hero` virtual machine (VM), start VirtualBox (the window has
+To start the ``fermi-hero`` virtual machine (VM), start VirtualBox (the window has
 ``Oracle VM VirtualBox Manager`` in the title) and double-click on the ``fermi-hero`` VM.
 
 Fedora wil boot up and present you with a login screen for the user ``hero``.
@@ -74,6 +74,6 @@ Some information on the VM:
 * 64-bit `Fedora <http://fedoraproject.org>`_ Linux Version 19 (specifically ``Fedora-Live-Desktop-x86_64-19-1.iso``)
 * Do all analysis as user ``hero`` in the home directory ``/home/hero`` ... no login password set.
 * If you need ``root`` access ... the password is ``root``. E.g. you can get a ``root`` terminal by typing ``su``
-  and then install software using ```yum`` <http://yum.baseurl.org/wiki/YumCommands>`_. 
+  and then install software using `yum <http://yum.baseurl.org/wiki/YumCommands>`_. 
 
  
