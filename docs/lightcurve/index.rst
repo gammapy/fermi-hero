@@ -3,6 +3,11 @@
 Aperture Lightcurve
 ===================
 
+.. include:: ./get_data.rst
+
+Computing the aperture lightcurve
+---------------------------------
+
 In this section of the tutorial we will learn how to generate an aperture
 lightcurve from Fermi/LAT. 
 
@@ -44,8 +49,7 @@ Generate an configuration file for this observation with the command::
 and enter the name and coordinates of the source (you will find them in the data
 selection cuts shown with ``gtvcut``). For the aperture lightcurve, the model
 and ROI size parameters are not used, so leave them to their default values.
-Make sure to enter the FT2 (spacecraft file) and FT1 (photon file) with their
-absolute paths. Finally, select the initial and final analysis times as given in
+Finally, select the initial and final analysis times as given in
 the server query file.
 
 You can the edit the file ``crab.conf`` to check the parameters. In addition to
