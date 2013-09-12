@@ -5,10 +5,14 @@ Virtual Box
 
 We have prepared a virtual box that contain all software and data you need for the tutorial.
 
-Note that you should have at least **10 GB of free disk space**!
-
 We will pass around USB sticks that contain the 6.3 GB ``fermi-hero.ova`` virtual appliance
 as well as `VirtualBox <https://www.virtualbox.org/>`_ installers for Mac and Windows.
+
+.. warning:: Your machine should have have at least **10 GB of free disk space**
+   and 6 GB or RAM. If you only have 4 GB of RAM you can try changing the VM RAM size
+   to 3 GB or 2 GB in the VM settings, but then some or the ScienceTools might
+   start to swap to disk and become really slow.
+
 
 Installing the VirtualBox software
 ----------------------------------
@@ -64,4 +68,12 @@ Fedora wil boot up and present you with a login screen for the user ``hero``.
 
 Some information on the VM:
 
-* 
+* Distributed as 6.3 GB file ``fermi-hero.ova`` in the `Open Virtualization Format <http://en.wikipedia.org/wiki/Open_Virtualization_Format>`_
+* 20 GB disk (VM file size grows dynamically) in `VDI <http://en.wikipedia.org/wiki/VDI_(file_format)#Virtual_Disk_Image>`_ format
+* 4 GB RAM
+* 64-bit `Fedora <http://fedoraproject.org>`_ Linux Version 19 (specifically ``Fedora-Live-Desktop-x86_64-19-1.iso``)
+* Do all analysis as user ``hero`` in the home directory ``/home/hero`` ... no login password set.
+* If you need ``root`` access ... the password is ``root``. E.g. you can get a ``root`` terminal by typing ``su``
+  and then install software using ```yum`` <http://yum.baseurl.org/wiki/YumCommands>`_. 
+
+ 
