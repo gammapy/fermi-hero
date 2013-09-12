@@ -1,9 +1,11 @@
-#!/usr/bin/env python
-"""Compute correlated source excess and significance maps."""
+"""Compute correlated source excess and significance maps.
+
+Christoph Deil, 2013-09-12
+"""
 import numpy as np
 from numpy import sign, sqrt, log
 from scipy.ndimage import convolve
-import pyfits as fits
+import pyfits
 
 def correlate_image(image, radius):
     """Correlate image with circular mask of a given radius.
@@ -30,8 +32,8 @@ def significance_lima(n_observed, mu_background):
 
 
 if __name__ == '__main__':
-    counts = fits.getdata('counts.fits')
-    model = fits.getdata('model.fits')
+    counts = pyfits.getdata('counts.fits')
+    model = pyfits.getdata('model.fits')
 
     radius = 5 # correlation circle radius
     correlated_counts = correlate_image(counts, radius)
@@ -40,6 +42,6 @@ if __name__ == '__main__':
     excess = correlated_counts - correlated_model
     significance = significance_lima(correlated_counts, correlated_model)
     
-    header = fits.getheader('counts.fits')
-    fits.writeto('excess.fits', excess, header, clobber=True)
-    fits.writeto('significance.fits', significance, header, clobber=True)
+    header = pyfits.getheader('counts.fits')
+    pyfits.writeto('excess.fits', excess, header, clobber=True)
+    pyfits.writeto('significance.fits', significance, header, clobber=True)
