@@ -60,7 +60,7 @@ and copy the rest from a default config file `enrico/data/config/default.conf`:
    tag [LAT_Analysis] : spectrum
    Start time [239557418] : 239557417
    End time [334165418] : 256970880
-   Emin [100] : 
+   Emin [100] : 200
    Emax [300000] : 
 
 Note :
@@ -71,20 +71,19 @@ Note :
 * Energy is given in MeV
 * ROI size is given in degrees
 
-
 Now you can edit this config file by hand to make further adjustments.
 
-Make a model xml file
----------------------
+Generate a source model xml file
+--------------------------------
 
 The Fermi Science Tools base their likelihood analysis on a source model written
 in xml format. Often, this model is complicated to generate. You can run
-``enrico_xml`` to make such model of the sky and store it into a xml file which will
-be used for the analysis.  The options for this step are provided in the config
-file. For the ``enrico_xml`` tool, the relevant options are in the [space],
-[target] section.  The out file is given by [file]/xml.
+``enrico_xml`` to make such model of the sky and store it into a xml file which
+will be used for the analysis.  The options for this step are provided in the
+config file. For the ``enrico_xml`` tool, the relevant options are in the
+``[space]`` and ``[target]`` sections.  The out file is given by ``[file]/xml``.
 
-This tool automatically adds to the xml file the following sources:
+This tool automatically adds the following sources to the xml source model file:
 
 * your target source.
 * The galactic (GalDiffModel) and isotropic (IsoDiffModel) diffuse components
@@ -96,7 +95,7 @@ This tool automatically adds to the xml file the following sources:
 
 .. code-block:: bash
 
-   $ enrico_xml myanalysis.conf 
+   $ enrico_xml pg1553.conf 
    use the default location of the catalog
    use the default catalog
    Use the catalog :  /CATALOG_PATH/gll_psc_v08.fit
@@ -123,18 +122,19 @@ Run global fit
 The gtlike tool finds the best-fit parameters by minimizing
 a likelihood function. Before running gtlike, the user must generate some
 intermediary files by using different tools. With enrico, all those steps are
-merged in one tool. To run the global fit just call :
+merged in one tool. To run the global fit just call:
 
 .. code-block:: bash
 
-   $ enrico_sed myanalysis.conf 
+   $ enrico_sed pg1553.conf 
 
-If the option ``[Spectrum]/GenerateFits`` is true, ``enrico_sed`` will execute
-the following steps for you:
+``enrico_sed`` will execute
+the following steps for you with the options you have selected in
+``pg1553.conf``:
 
 #. **gtselect**: Perform event selection.
 #. **gtmktime**: Perform time selection based on spacecraft file.
-#. **gtbin** : Compute a counts cube map from the selected data. A counts cube
+#. **gtbin**: Compute a counts cube map from the selected data. A counts cube
    map is a collection of counts maps for different energies.
 #. **gtltcube**: Perform the calculation of the livetime cube. This is the most
    computationally intensive step, taking.
@@ -147,7 +147,7 @@ the following steps for you:
 From all the preliminary fits files generated in the previous steps, ``enrico``
 is ready to run the likelihood minimisation routine that will result in the
 best-fit parameters for our source of interest with the tool ``gtlike``.  The
-command line output should be similar to the following:::
+command line output should be similar to the following::
 
     # ************************************************************
     # *** SUMMARY:  ***
@@ -278,7 +278,9 @@ command line output should be similar to the following:::
     # ************************************************************
 
 
-After the fit has converged, ``enrico`` prints the best-fit parameters for all the sources in the model file, includeing our source of interest:::
+After the fit has converged, ``enrico`` prints the best-fit parameters for all
+the sources in the model file, including our source of interest::
+
     Values and (MINOS) errors for PG1553
     TS :  2189.41693741
     Integral :  79.53 +/-  5.90 [ -5.79, + 6.01 ] 1e-09
@@ -311,33 +313,36 @@ identify any sources that have been imperfectly modeled.
     the observed emission.
 
 A file with the extension 'results' will be produced and where all the results
-will be stored.  If you want to refit the data because e.g. you changed the xml
-model, you are not force to regenerate the fits file. Only the gtlike tool
-should be executed again.  You can do this with enrico by changing the option
-``[spectrum]/FitsGeneration`` from yes to no, and enrico will bypass all the
-preliminary calculations and perform only the fit.
+will be stored.  
 
-.. note:: 
-   For the ``enrico_sed`` tool, most of the relevant options are in the [spectrum] section
+.. note::
+    If you want to refit the data because e.g. you changed the xml
+    model, you are not force to regenerate the fits file. Only the gtlike tool
+    should be executed again.  You can do this with enrico by changing the option
+    ``[spectrum]/FitsGeneration`` from yes to no, and enrico will bypass all the
+    preliminary calculations and perform only the fit.
 
 You can use ``enrico_testmodel`` to compute the log(likelihood) of the models
 ``PowerLaw``, ``LogParabola`` and ``PLExpCutoff``. An ascii file is then produced in
 the Spectrum folder with the value of the log(likelihood) for each model. You
 can then use the `Wilk's
-theorem<http://en.wikipedia.org/wiki/Likelihood-ratio_test>`_ to decide which
+theorem <http://en.wikipedia.org/wiki/Likelihood-ratio_test>`_ to decide which
 model best describes the data.
 
-Make flux points
-----------------
+Compute flux points
+-------------------
+
+.. warning::
+    The computation of flux points takes very long, so we will not have time to
+    execute it during the tutorial. It is here for information and future reference.
 
 Note that for the above global fit, we have obtained a fit of the source
-parameters to the data, but we have not obtained flux points to be plotted as a
+parameters to the data, but we have not computed flux points to be plotted as a
 spectrum. To do so you should rerun the above analysis for each of the energy
-ranges for which you want to generate a spectral point. Helpfully, ``enrico``
+ranges for which you want to generate a spectral point. Fortunately, ``enrico``
 can automate this process!
 
-
-To make flux points, the ``enrico_sed`` tool will also be used. It will first
+To compute flux points, the ``enrico_sed`` tool will also be used. It will first
 run a global fit (see previous section) and if the option [Ebin]/NumEnergyBins
 is greater than 0, at the end of the overall fit, enrico will run
 ``NumEnergyBins`` new analyses by dividing the energy range.
@@ -347,9 +352,32 @@ gtmktime,gtltcube,..., gtlike), run by the same enrico tool than the full
 energy range analysis. If the TS found in any of the energy time bins is below
 [Ebin]/TSEnergyBins then an upper limit is computed.
 
-
 .. note:: 
-
     If a bin failed for some reason or the results are not good, you can rerun
     the analysis of the bin by calling `enrico_sed` and the config file of the bin
     (named SOURCE\_NumBin.conf and in the subfolder Ebin#). 
+
+
+Plotting the spectrum
+---------------------
+
+Enrico will already have produced several diagnostic plots during the execution
+of the analysis tools. To plot the final spectrum, we will use the tool
+``enrico_plot_sed``, which will use the results from the likelihood fitting to
+produce an SED plot. If you have not run the spectral point computation routine,
+``enrico_plot_sed`` will only plot a bowtie of the best-fit model and its
+uncertainty:
+
+.. image:: bowtie.png
+    :align: center
+    :width: 80%
+
+If we have run the ``enrico_sed`` tools with ``[Ebin]/NumEnergyBins`` larger
+than 0, the ``Ebin#`` directory will be populated with the results of the
+likelihood analyses of all the energy bins, and will be used to plot the SED
+containing the flux points:
+
+.. image:: sed.png
+    :align: center
+    :width: 80%
+   
