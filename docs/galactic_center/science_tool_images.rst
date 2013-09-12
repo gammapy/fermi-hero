@@ -51,22 +51,47 @@ for information on these diffuse model components that are considered "backgroun
 for gamma-ray source analysis. 
 
 To get this image we need to run the following three Fermi ScienceTools in sequence:
-* ``gtbin`` with the ``CCUBE`` option.
-* ``gtexpcube2``
-* ``gtmodel``
 
-Compute an exposure cube
-++++++++++++++++++++++++
+* `gtbin <http://fermi.gsfc.nasa.gov/ssc/data/analysis/scitools/help/gtbin.txt>`_ with the ``CCUBE`` option.
+* `gtexpcube2 <http://fermi.gsfc.nasa.gov/ssc/data/analysis/scitools/help/gtexpcube2.txt>`_
+* `gtmodel <http://fermi.gsfc.nasa.gov/ssc/data/analysis/scitools/help/gtmodel.txt>`_
 
-`gtexpcube2 <http://fermi.gsfc.nasa.gov/ssc/data/analysis/scitools/help/gtexpcube2.txt>`_
+First we need to describe the model, which we do in the `XML <http://en.wikipedia.org/wiki/XML>`_ file ``diffuse_model.xml``:
 
-Compute a diffuse model image
------------------------------
+.. literalinclude:: diffuse_model.xml
+   :emphasize-lines: 2
+   :linenos:
 
-`gtmodel <http://fermi.gsfc.nasa.gov/ssc/data/analysis/scitools/help/gtmodel.txt>`_
+Next we create `symbolic links <http://en.wikipedia.org/wiki/Symbolic_link>`_ to the diffuse model files
+that come with the Fermi Science tools software distribution so that the tools will find them:
 
 ::
 
    ln -s $FERMI_DIR/refdata/fermi/galdiffuse/gal_2yearp7v6_v0.fits .
    ln -s $FERMI_DIR/refdata/fermi/galdiffuse/iso_p7v6source.txt .
 
+Now we can run the tools to compute exposure and the PSF-convolved model image using these commands::
+
+   $ time gtbin evfile=gtmktime.fits scfile=../../spacecraft.fits outfile=count_cube.fits \
+     algorithm=CCUBE ebinalg=LOG emin=10e3 emax=316e3 enumbins=8 \
+     nxpix=600 nypix=100 binsz=0.1 coordsys=GAL \
+     xref=0 yref=0 axisrot=0 proj=CAR
+
+   $ time gtexpcube2 infile=gtltcube.fits cmap=none outfile=gtexpcube2.fits \
+     irfs=P7SOURCE_V6 nxpix=1800 nypix=900 binsz=0.2 coordsys=GAL \
+     xref=0 yref=0 axisrot=0 proj=AIT \
+     emin=10e3 emax=316e3 enumbins=8 bincalc=EDGE
+
+   $ time gtmodel srcmaps=count_cube.fits srcmdl=diffuse_model.xml \
+     outfile=gtmodel.fits irfs=P7SOURCE_V6 \
+     expcube=gtltcube.fits bexpmap=gtexpcube2.fits
+
+On my machine ``gtbin`` takes 5 seconds, ``gtexpcube2`` takes 1 minute and ``gtmodel`` takes 5 minutes.
+
+.. note:: Exercise: Inspect the generated files with ``ftlist`` and ``ds9`` to see what they contain.
+
+.. image:: galactic_plane_diffuse_model.png
+   :scale: 35 %
+
+Consult the official Fermi LAT `Binned Likelihood Tutorial <http://fermi.gsfc.nasa.gov/ssc/data/analysis/scitools/binned_likelihood_tutorial.html>`_
+analysis thread for detailed information.
