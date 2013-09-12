@@ -278,7 +278,9 @@ command line output should be similar to the following:::
     # ************************************************************
 
 
-After the fit has converged, ``enrico`` prints the best-fit parameters for all the sources in the model file, includeing our source of interest:::
+After the fit has converged, ``enrico`` prints the best-fit parameters for all
+the sources in the model file, including our source of interest:::
+
     Values and (MINOS) errors for PG1553
     TS :  2189.41693741
     Integral :  79.53 +/-  5.90 [ -5.79, + 6.01 ] 1e-09
