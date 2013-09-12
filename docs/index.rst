@@ -7,7 +7,7 @@ Welcome to the `Fermi <http://fermi.gsfc.nasa.gov>`_ Large Area Telescope (LAT) 
 The tutorial will be held by Christoph Deil and Victor Zabalza from
 `MPIK Heidelberg <http://www.mpi-hd.mpg.de/mpi/en/start/>`_.
 
-* Monday, September 9, 17:00 - 18:00: Victor will give a 15 minute introduction to Fermi (TODO: link to slides).
+* Monday, September 9, 17:00 - 18:00: Victor will give a 15 minute introduction to Fermi (`link to slides <https://raw.github.com/gammapy/fermi-hero/master/slides/introduction.pdf>`_).
   Then we'll do the :ref:`software` and :ref:`data` setup.
 * Tuesday, September 10, 16:00 - 17:30: :ref:`getting_started` tutorial
 * Thursday, September 12, 16:00 - 19:00: :ref:`spectrum`, :ref:`lightcurve`
