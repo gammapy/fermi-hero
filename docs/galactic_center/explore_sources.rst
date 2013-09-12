@@ -12,7 +12,7 @@ like this::
 and the `LAT 2-year Point Source Catalog <http://fermi.gsfc.nasa.gov/ssc/data/access/lat/2yr_catalog/>`_
 in FITS and ds9 region format like this::
 
-   $ http://fermi.gsfc.nasa.gov/ssc/data/access/lat/2yr_catalog/gll_psc_v08.fit
+   $ wget http://fermi.gsfc.nasa.gov/ssc/data/access/lat/2yr_catalog/gll_psc_v08.fit
    $ wget http://fermi.gsfc.nasa.gov/ssc/data/access/lat/2yr_catalog/gll_psc_v07.reg
 
 
