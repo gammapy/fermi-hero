@@ -317,9 +317,6 @@ should be executed again.  You can do this with enrico by changing the option
 ``[spectrum]/FitsGeneration`` from yes to no, and enrico will bypass all the
 preliminary calculations and perform only the fit.
 
-.. note:: 
-   For the ``enrico_sed`` tool, most of the relevant options are in the [spectrum] section
-
 You can use ``enrico_testmodel`` to compute the log(likelihood) of the models
 ``PowerLaw``, ``LogParabola`` and ``PLExpCutoff``. An ascii file is then produced in
 the Spectrum folder with the value of the log(likelihood) for each model. You
@@ -327,17 +324,20 @@ can then use the `Wilk's
 theorem<http://en.wikipedia.org/wiki/Likelihood-ratio_test>`_ to decide which
 model best describes the data.
 
-Make flux points
-----------------
+Compute flux points
+-------------------
+
+.. warning::
+    The computation of flux points takes very long, so we will not have time to
+    execute it during the tutorial. It is here for information and future reference.
 
 Note that for the above global fit, we have obtained a fit of the source
-parameters to the data, but we have not obtained flux points to be plotted as a
+parameters to the data, but we have not computed flux points to be plotted as a
 spectrum. To do so you should rerun the above analysis for each of the energy
-ranges for which you want to generate a spectral point. Helpfully, ``enrico``
+ranges for which you want to generate a spectral point. Fortunately, ``enrico``
 can automate this process!
 
-
-To make flux points, the ``enrico_sed`` tool will also be used. It will first
+To compute flux points, the ``enrico_sed`` tool will also be used. It will first
 run a global fit (see previous section) and if the option [Ebin]/NumEnergyBins
 is greater than 0, at the end of the overall fit, enrico will run
 ``NumEnergyBins`` new analyses by dividing the energy range.
@@ -347,9 +347,32 @@ gtmktime,gtltcube,..., gtlike), run by the same enrico tool than the full
 energy range analysis. If the TS found in any of the energy time bins is below
 [Ebin]/TSEnergyBins then an upper limit is computed.
 
-
 .. note:: 
-
     If a bin failed for some reason or the results are not good, you can rerun
     the analysis of the bin by calling `enrico_sed` and the config file of the bin
     (named SOURCE\_NumBin.conf and in the subfolder Ebin#). 
+
+
+Plotting the spectrum
+---------------------
+
+Enrico will already have produced several diagnostic plots during the execution
+of the analysis tools. To plot the final spectrum, we will use the tool
+``enrico_plot_sed``, which will use the results from the likelihood fitting to
+produce an SED plot. If you have not run the spectral point computation routine,
+``enrico_plot_sed`` will only plot a bowtie of the best-fit model and its
+uncertainty:
+
+.. image:: bowtie.png
+    :align: center
+    :width: 80%
+
+If we have run the ``enrico_sed`` tools with ``[Ebin]/NumEnergyBins`` larger
+than 0, the ``Ebin#`` directory will be populated with the results of the
+likelihood analyses of all the energy bins, and will be used to plot the SED
+containing the flux points:
+
+.. image:: sed.png
+    :align: center
+    :width: 80%
+   
