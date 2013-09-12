@@ -62,3 +62,6 @@ Point to :ref:`lightcurve` tutorial.
 .. image:: lat_cntmap_weekly_merged_soft.gif
    :scale: 100 %
 
+.. image:: lat_cntmap_weekly_merged_hard.gif
+   :scale: 100 %
+
