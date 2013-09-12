@@ -37,7 +37,7 @@ if __name__ == '__main__':
 
     radius = 5 # correlation circle radius
     correlated_counts = correlate_image(counts, radius)
-    correlated_model = correlate_image(model, image)
+    correlated_model = correlate_image(model, radius)
     
     excess = correlated_counts - correlated_model
     significance = significance_lima(correlated_counts, correlated_model)
