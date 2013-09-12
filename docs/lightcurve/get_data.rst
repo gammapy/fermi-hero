@@ -66,6 +66,8 @@ The parameters for the photon query should therefore be:
 .. table:: LAT query parameters
 
     ================================ =========================================
+    Parameter                        Value
+    ================================ =========================================
     Object Name                      Crab Nebula
     Equatorial coordinates (degrees) (83.6331,22.0145)
     Time range (MET)                 (323913600,325296000)
