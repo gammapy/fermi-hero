@@ -16,7 +16,9 @@ detection of `dark matter <http://en.wikipedia.org/wiki/Dark_matter>`_.
    :numbered:
 
    intro
-   maps
+   prepare_data
+   science_tool_images
+   python_images
    explore_sources
    line
 
