@@ -37,4 +37,4 @@ you copy the file ``gtltcube.fits`` from the solutions folder so that you can co
    $ time gtltcube evfile=gtmktime.fits scfile=../../spacecraft.fits \
      outfile=gtltcube.fits dcostheta=0.025 binsz=1 
 
-On my laptop ``gtselect`` takes 2 seconds, ``gtmktime`` takes 4 minutes and ``gtltcube`` takes two hours.
+On my laptop ``gtselect`` takes 2 seconds, ``gtmktime`` takes 4 minutes and ``gtltcube`` takes two hours!
