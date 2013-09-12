@@ -65,14 +65,14 @@ The parameters for the photon query should therefore be:
 
 .. table:: LAT query parameters
 
-    -------------------------------- -----------------------------------------
+    ================================ =========================================
     Object Name                      Crab Nebula
     Equatorial coordinates (degrees) (83.6331,22.0145)
     Time range (MET)                 (323913600,325296000)
     Time range (Gregorian)           (2011-04-08 00:00:00,2011-04-24 00:00:00)
     Energy range (MeV)               (100,300000)
     Search radius (degrees)          1
-    -------------------------------- -----------------------------------------
+    ================================ =========================================
 
 After a brief wait, download the resulting photon file to the
 ``$FERMI_HERO/excercises/lightcurve`` directory and, optionally, rename it to
