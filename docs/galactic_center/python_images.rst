@@ -26,10 +26,12 @@ let's use a Python script ``make_source_images.py``:
    :emphasize-lines: 2
    :linenos:
 
-Run it by typing:
-
-
-
-.. note:: Exercise: Open up the significance image
-
 TODO: explain script a bit.
+
+Run it by typing::
+
+   $ python make_source_images.py
+
+.. note:: Exercise: Open up the ``exercise.fits`` and ``significance.fits`` images and see if
+   the values roughly make sense.
+
