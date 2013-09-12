@@ -83,7 +83,7 @@ Now we can run the tools to compute exposure and the PSF-convolved model image u
      emin=10e3 emax=316e3 enumbins=8 bincalc=EDGE
 
    $ time gtmodel srcmaps=count_cube.fits srcmdl=diffuse_model.xml \
-     outfile=gtmodel.fits irfs=P7SOURCE_V6 \
+     outfile=model_image.fits irfs=P7SOURCE_V6 \
      expcube=gtltcube.fits bexpmap=gtexpcube2.fits
 
 On my machine ``gtbin`` takes 5 seconds, ``gtexpcube2`` takes 1 minute and ``gtmodel`` takes 5 minutes.

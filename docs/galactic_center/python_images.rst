@@ -26,4 +26,10 @@ let's use a Python script ``make_source_images.py``:
    :emphasize-lines: 2
    :linenos:
 
+Run it by typing:
+
+
+
+.. note:: Exercise: Open up the significance image
+
 TODO: explain script a bit.

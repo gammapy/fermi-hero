@@ -32,8 +32,10 @@ def significance_lima(n_observed, mu_background):
 
 
 if __name__ == '__main__':
-    counts = pyfits.getdata('counts.fits')
-    model = pyfits.getdata('model.fits')
+    print('Reading count_image.fits')
+    counts = pyfits.getdata('count_image.fits')
+    print('Reading model_image.fits')
+    model = pyfits.getdata('model_image.fits')
 
     radius = 5 # correlation circle radius
     correlated_counts = correlate_image(counts, radius)
@@ -42,6 +44,8 @@ if __name__ == '__main__':
     excess = correlated_counts - correlated_model
     significance = significance_lima(correlated_counts, correlated_model)
     
-    header = pyfits.getheader('counts.fits')
+    header = pyfits.getheader('count_image.fits')
+    print('Writing excess.fits')
     pyfits.writeto('excess.fits', excess, header, clobber=True)
+    print('Writing significance.fits')
     pyfits.writeto('significance.fits', significance, header, clobber=True)
