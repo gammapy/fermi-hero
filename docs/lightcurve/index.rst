@@ -60,8 +60,18 @@ lightcurve between ``tmin`` and ``tmax``. Given that the total selection time in
 file is 16 days, 32 bins will result in a bin width of 12 hours, and 64 bins in
 a bin width of 24 hours. You can try different bin widths to check which one
 yields the most informative lightcurve, taking into account that shorter time
-bin widths will result in larger uncertainties.  Then run the aperture lightcurve
-enrico script: ::
+bin widths will result in larger uncertainties.  
+
+During these observations the survey mode of the Fermi observatory was changed
+in favour of pointed observations towards the Crab Nebula. For this reason, one
+of the filter options in crab.conf (``ABS(ROCK_ANGLE)<52``) should be removed as
+it is related to the survey mode spacecraft rocking. The resulting filter
+expression in ``[analysis]/filter`` should be: ::
+    
+    [analysis]
+        filter = DATA_QUAL==1&&LAT_CONFIG==1
+
+Finally, run the aperture lightcurve ``enrico`` script: ::
 
     $ enrico_applc crab.conf
 
