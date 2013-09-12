@@ -53,7 +53,8 @@ As always we start by preparing the event list by running ``gtselect`` and ``gtm
 Note that we can use the same photon files as input that we to make Galactic plane high-energy images,
 because in both cases our event selection is a subset the event selection we specified when downloading the data.
 
-Let's use the same region of interest (ROI) of 3 deg around the Galactic center and no energy cut at this point:
+Let's use the same region of interest (ROI) of 3 deg around the Galactic center 
+and no energy cut at this point::
 
    $ gtselect infile=@events.txt outfile=line_gtselect.fits \
      ra=266.404996 dec=-28.936172 rad=3 tmin=INDEF tmax=INDEF \
