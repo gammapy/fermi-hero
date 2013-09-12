@@ -28,7 +28,7 @@ TODO: describe rad, emin, emax values::
      emin=100 emax=1000000 zmax=100 evclass=2
 
    $ gtmktime scfile=../../spacecraft.fits evfile=line_gtselect.fits \
-     filter=DATA_QUAL==1&&LAT_CONFIG==1&&ABS(ROCK_ANGLE)<52 \
+     filter="DATA_QUAL==1&&LAT_CONFIG==1&&ABS(ROCK_ANGLE)<52" \
      roicut=yes outfile=line_gtmktime.fits
 
 
