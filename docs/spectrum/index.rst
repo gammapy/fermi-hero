@@ -10,7 +10,9 @@ collaboration likelihood tutorial
 as well as in the `enrico tutorial
 <http://enrico.readthedocs.org/en/latest/tutorial.html>`_, so that you can check
 your results and have additional information by consulting the two other
-webpages.
+webpages. The results from the analysis of this dataset were published in `Abdo,
+A. A. et al. 2010, ApJ, 708, 1310
+<http://adsabs.harvard.edu/abs/2010ApJ...708.1310A>`_.
 
 A note on directory structure
 -----------------------------
