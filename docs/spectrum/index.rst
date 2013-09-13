@@ -134,8 +134,8 @@ the following steps for you with the options you have selected in
    map is a collection of counts maps for different energies.
 #. **gtltcube**: Perform the calculation of the livetime cube. This is the most
    computationally intensive step, taking.
-#. **gtexpmap2**: Use the previously generated livetime cube and apply it to
-   your ROI to obtain an exposure map.
+#. **gtexpcube2**: Use the previously generated livetime cube and apply it to
+   your ROI to obtain an exposure cube.
 #. **gtsrcmaps**: Create model counts maps for each of the sources in the source
    model catalog. This is used to speed up the likelihood calculation of
    ``gtlike``.
