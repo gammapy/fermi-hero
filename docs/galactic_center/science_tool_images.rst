@@ -72,17 +72,17 @@ that come with the Fermi Science tools software distribution so that the tools w
 
 Now we can run the tools to compute exposure and the PSF-convolved model image using these commands::
 
-   $ time gtbin evfile=gtmktime.fits scfile=../../spacecraft.fits outfile=count_cube.fits \
+   $ gtbin evfile=gtmktime.fits scfile=../../spacecraft.fits outfile=count_cube.fits \
      algorithm=CCUBE ebinalg=LOG emin=10e3 emax=316e3 enumbins=8 \
      nxpix=600 nypix=100 binsz=0.1 coordsys=GAL \
      xref=0 yref=0 axisrot=0 proj=CAR
 
-   $ time gtexpcube2 infile=gtltcube.fits cmap=none outfile=gtexpcube2.fits \
+   $ gtexpcube2 infile=gtltcube.fits cmap=none outfile=gtexpcube2.fits \
      irfs=P7SOURCE_V6 nxpix=1800 nypix=900 binsz=0.2 coordsys=GAL \
      xref=0 yref=0 axisrot=0 proj=AIT \
      emin=10e3 emax=316e3 enumbins=8 bincalc=EDGE
 
-   $ time gtmodel srcmaps=count_cube.fits srcmdl=diffuse_model.xml \
+   $ gtmodel srcmaps=count_cube.fits srcmdl=diffuse_model.xml \
      outfile=model_image.fits irfs=P7SOURCE_V6 \
      expcube=gtltcube.fits bexpmap=gtexpcube2.fits
 

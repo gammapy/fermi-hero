@@ -26,15 +26,15 @@ Now tun the following commands in sequence. ``gtselect`` will just take a few se
 you copy the file ``gtltcube.fits`` from the solutions folder so that you can continue quickly ::
 
 
-   $ time gtselect infile=@events.txt outfile=gtselect.fits \
+   $ gtselect infile=@events.txt outfile=gtselect.fits \
      ra=INDEF dec=INDEF rad=INDEF tmin=INDEF tmax=INDEF \
      emin=10e3 emax=316e3 zmax=100 evclass=2
 
-   $ time gtmktime scfile=../../spacecraft.fits evfile=gtselect.fits \
+   $ gtmktime scfile=../../spacecraft.fits evfile=gtselect.fits \
      filter="DATA_QUAL==1&&LAT_CONFIG==1&&ABS(ROCK_ANGLE)<52" \
      roicut=yes outfile=gtmktime.fits
 
-   $ time gtltcube evfile=gtmktime.fits scfile=../../spacecraft.fits \
+   $ gtltcube evfile=gtmktime.fits scfile=../../spacecraft.fits \
      outfile=gtltcube.fits dcostheta=0.025 binsz=1 
 
 On my laptop ``gtselect`` takes 2 seconds, ``gtmktime`` takes 4 minutes and ``gtltcube`` takes two hours!
