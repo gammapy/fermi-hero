@@ -1,10 +1,10 @@
 .. _getting_started_get_data:
 
 Get Fermi LAT data
-------------------
+==================
 
 Spacecraft file
-+++++++++++++++
+---------------
 
 The spacecraft file doesn't depend on the sky region or energy range you are interested in
 ... it is valid for the whole sky and all energies.
@@ -20,7 +20,7 @@ mission (updated daily with new data) use this command
 
 
 Photon files
-++++++++++++
+------------
 
 Usually you will do this via the
 `FSSC data query web interface <http://fermi.gsfc.nasa.gov/cgi-bin/ssc/LAT/LATDataQuery.cgi>`_
@@ -45,8 +45,8 @@ TODO: give screenshots and short description.
     are about 30 GB (giga-bytes) in size, so make sure you have the disk space and internet connection bandwidth.
 
 
-Getting data from the April 2011 Crab Nebula Flare
-++++++++++++++++++++++++++++++++++++++++++++++++++
+Example: Getting data from the April 2011 Crab Nebula Flare
+-----------------------------------------------------------
 
 To carry out the aperture lightcurve excercise you will have to download the
 photon data from the `FSSC data query web interface

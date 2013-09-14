@@ -64,6 +64,7 @@ Steps
    :numbered:
 
    first_look
+   get_data
    prepare_data
    python
    explore_events

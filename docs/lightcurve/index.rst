@@ -3,8 +3,6 @@
 Aperture Lightcurve
 ===================
 
-.. include:: ./get_data.rst
-
 Computing the aperture lightcurve
 ---------------------------------
 
